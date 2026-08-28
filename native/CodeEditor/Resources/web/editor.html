@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>代码编辑器</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="monaco/vs/editor/editor.main.css" />
+</head>
+<body>
+  <div id="titlebar"></div>
+  <div id="app">
+    <div id="activitybar">
+      <button id="btn-safe-mode" class="safe-mode-toggle locked" title="安全模式已开启：点击允许编辑" aria-label="安全模式">
+        <svg class="safe-icon safe-icon-lock" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        <svg class="safe-icon safe-icon-unlock" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 7.5-2"/></svg>
+      </button>
+      <div class="activity-item active" data-view="explorer" title="资源管理器">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h6l2 2h10v12H3z"/></svg>
+      </div>
+      <div class="activity-item" data-view="search" title="搜索">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <div class="sidebar-header"><span id="sidebar-title">资源管理器</span></div>
+      <div id="sidebar-content">
+        <div id="explorer-view">
+          <div class="empty-state">
+            <p>尚未打开任何文件夹。</p>
+            <button id="btn-open-file">打开文件</button>
+            <button id="btn-open-folder">打开文件夹</button>
+          </div>
+          <div id="file-tree" style="display:none"></div>
+        </div>
+        <div id="search-view" style="display:none">
+          <input type="text" id="search-input" placeholder="在当前文件中搜索…" />
+          <div id="search-results"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div id="tabs"></div>
+      <div id="editor-area">
+        <div id="welcome">
+          <div class="welcome-content">
+            <h1>代码编辑器</h1>
+            <p class="subtitle">一款为你而生的轻量编辑器</p>
+            <div class="welcome-actions">
+              <button id="welcome-new">新建文件</button>
+              <button id="welcome-open-file">打开文件…</button>
+              <button id="welcome-open-folder">打开文件夹…</button>
+            </div>
+            <div class="welcome-hint">
+              <p>可通过按钮或菜单打开文件 / 文件夹。</p>
+              <p style="margin-top:6px">⌘N 新建 · ⌘O 打开文件 · ⌘⇧O 打开文件夹</p>
+            </div>
+          </div>
+        </div>
+        <div id="editor-container" style="display:none"></div>
+        <div id="safe-mode-badge" class="safe-mode-badge">安全模式：只读</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="statusbar">
+    <div class="status-left"><span id="status-path"></span></div>
+    <div class="status-right">
+      <span id="status-cursor"></span>
+      <span id="status-encoding">UTF-8</span>
+      <span id="status-eol">LF</span>
+      <span id="status-language"></span>
+    </div>
+  </div>
+
+  <script>
+    var require = { paths: { vs: 'monaco/vs' } };
+  </script>
+  <script src="monaco/vs/loader.js"></script>
+  <script src="monaco/vs/editor/editor.main.js" defer></script>
+  <script src="renderer.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "code-editor",
+  "version": "1.0.0",
+  "description": "代码编辑器 — 一款轻量的 macOS 代码编辑器",
+  "author": "ORDOABCHAOWT",
+  "license": "MIT",
+  "scripts": {
+    "build": "bash native/CodeEditor/build.sh",
+    "test": "node native/CodeEditor/tests/static-checks.js"
+  }
+}

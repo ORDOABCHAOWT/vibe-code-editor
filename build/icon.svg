@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EA9FF"/>
+      <stop offset="55%" stop-color="#1F7BD4"/>
+      <stop offset="100%" stop-color="#0E5BA6"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.78"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14"/>
+      <feOffset dx="0" dy="10" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background, macOS Big Sur app icon proportions -->
+  <rect x="80" y="80" width="864" height="864" rx="200" ry="200" fill="url(#bg)"/>
+
+  <!-- Subtle inner highlight -->
+  <rect x="80" y="80" width="864" height="864" rx="200" ry="200" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="3"/>
+
+  <!-- VS Code-like ribbon shape -->
+  <g filter="url(#shadow)">
+    <path d="M 680 220
+             L 800 280
+             L 800 744
+             L 680 804
+             L 340 540
+             L 230 620
+             L 200 600
+             L 200 424
+             L 230 404
+             L 340 484
+             Z"
+          fill="url(#ribbon)"/>
+    <!-- inner cut showing the fold -->
+    <path d="M 680 220 L 680 804 L 340 540 Z" fill="#FFFFFF" fill-opacity="0.15"/>
+  </g>
+
+  <!-- Code brackets / chevrons on the ribbon to suggest "code editor" -->
+  <g stroke="#1F7BD4" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <polyline points="500,420 430,512 500,604"/>
+    <polyline points="600,420 670,512 600,604"/>
+    <line x1="560" y1="400" x2="540" y2="624" stroke="#0E5BA6" stroke-width="16"/>
+  </g>
+</svg>
