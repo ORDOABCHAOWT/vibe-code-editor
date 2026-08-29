@@ -9,6 +9,26 @@
   <img src="https://img.shields.io/badge/License-MIT-7AC143" alt="MIT License">
 </p>
 
+## 功能一览
+
+### 文件和文件夹，随手打开
+
+左侧资源管理器把常用入口放在最顺手的位置。
+
+<p align="center"><img src="docs/feature-files.png" alt="代码编辑器的文件与文件夹入口" width="900"></p>
+
+### 从一个文件开始，也能打开完整项目
+
+新建、打开文件与打开文件夹都支持按钮和键盘快捷键。
+
+<p align="center"><img src="docs/feature-start.png" alt="代码编辑器的欢迎页与快捷入口" width="900"></p>
+
+### 需要查看时，安心只读
+
+安全模式会明确标记只读状态，降低浏览陌生项目时的误改风险。
+
+<p align="center"><img src="docs/feature-readonly.png" alt="代码编辑器的安全只读模式" width="900"></p>
+
 ## 亮点
 
 - 打开单个文件或完整文件夹。
